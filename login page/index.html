@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Login Form</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://kit.fontawesome.com/97ebdf5864.js" crossorigin="anonymous"></script>
+</head>
+<body>
+     
+    <div class="container">
+        <h2>Login</h2>
+
+        <form method="post">
+            
+            <div class="form-group">
+                <input type="text" required>
+                <span></span>
+                <!-- <label for="">Email</label> -->
+                <label >Email</label>
+                <i class="fa-solid fa-envelope"></i>
+                <!-- <i class="fa-solid fa-envelope"></i> -->
+            </div>
+
+            <div class="form-group">
+                <input type="password" required>
+                <span></span>
+                <label >Password</label>
+                <i class="fa-solid fa-lock"></i>
+                <!-- <i class="fa-solid fa-lock"></i> -->
+            </div>
+
+            <p><input type="checkbox">Remember Me <a href="#">Forget Password</a></p>
+
+            <!-- <input id="btn" type="submit" value="Login"> -->
+             <button id="btn">Login</button>
+
+            <p>Don't have a account? <a href="#">Register</a></p>
+
+        </form>
+    </div>
+    <script>
+            
+        // Get all form elements
+        const form = document.getElementById('loginForm');
+        const inputs = form.querySelectorAll('input');
+        let btn  = document.querySelector("btn")
+
+        // Focus event listener to add and remove active class
+        inputs.forEach(input => {
+            input.addEventListener('focus', () => {
+                const parent = input.parentElement;
+                parent.classList.add('active');
+            });
+
+            input.addEventListener('blur', () => {
+                const parent = input.parentElement;
+                if (input.value === '') {
+                    parent.classList.remove('active');
+                }
+            });
+        });
+
+        // Submit event to handle login
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const email = form.querySelector('input[type="text"]').value;
+            const password = form.querySelector('input[type="password"]').value;
+            
+            if (email && password) {
+                alert("Login Successful");
+                // You can add the actual login logic here
+            } else {
+                alert("Please fill out all fields.");
+            }
+        });
+
+        // function clicks({
+            btn.onclick = alert("login successfull. ");
+        // });
+    
+    </script>
+
+</body>
+</html>
